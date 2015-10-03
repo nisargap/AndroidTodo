@@ -13,7 +13,6 @@ To Do List tutorial for Android Development
 - Make sure that the MainActivity is a RelativeLayout (check activity_main.xml).
 - Drag a ListView to the activity_main.xml view make sure it has id @android:id/list
 - It should look something like this:
-![Image of StepOne]
-(http://nisargap.github.io/AndroidTodo/images/StepOne.png =350x)
+<img src="http://nisargap.github.io/AndroidTodo/images/StepOne.png" width="350">
 
 ## Step Two: 
