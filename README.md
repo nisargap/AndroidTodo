@@ -12,5 +12,8 @@ To Do List tutorial for Android Development
 - The first thing to do is set up the the MainActivity layout (this is the view that the app first opens when it starts)
 - Make sure that the MainActivity is a RelativeLayout (check activity_main.xml).
 - Drag a ListView to the activity_main.xml view make sure it has id @android:id/list
+- It should look something like this:
+![Image of StepOne]
+(http://nisargap.github.io/AndroidTodo/images/StepOne.png)
 
 ## Step Two: 
