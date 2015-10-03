@@ -16,4 +16,9 @@ To Do List tutorial for Android Development
 <br>
 <img src="http://nisargap.github.io/AndroidTodo/images/StepOne.png" width="350">
 
-## Step Two: 
+## Step Two: Setting Up the Task View
+- Create a file under the layout directory called "task_view.xml"
+- Drag a TextView and a Button the the view (this is for displaying each of the tasks and the done button is for deleting a task after completion)
+- It should look something like this:
+<br>
+<img src="http://nisargap.github.io/AndroidTodo/images/StepTwo.png" width="350">
