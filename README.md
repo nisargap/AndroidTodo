@@ -25,7 +25,7 @@ To Do List tutorial for Android Development
 <img src="http://nisargap.github.io/AndroidTodo/images/StepTwo.png" width="350">
 
 ## Step Three: Creating the Add Task Menu
-- Under the menu directory delete any file that is there and replace it with this code below
+- Under the menu directory delete any file that is there and create a file called menu.xml and put this code in it
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 
