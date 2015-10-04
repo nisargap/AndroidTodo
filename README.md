@@ -188,6 +188,8 @@ protected void onCreate(Bundle savedInstanceState) {
 
 ```
 - Now if you run your app you should be able to view and add elements to the task list
+
+
 ## Step Seven: Making the Done Button Work
 - Go to your task_view.xml file under layouts and click on the Text tab at the bottom
 - Add the following two lines to your Button tags
