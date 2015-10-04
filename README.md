@@ -79,3 +79,61 @@ public boolean onOptionsItemSelected(MenuItem item) {
 - Your app should look like:
 <br>
 <img src="http://nisargap.github.io/AndroidTodo/images/StepFour.png" width="350">
+- Now if you click on the + button the console should print "Add a new task"
+
+## Step Five: Adding more functionality to our menu
+- Now that we know our menu button works lets add something more useful how about we add an alert box in which you can type new tasks into
+- Modify the onOptionsItemsSelected method so it looks like this:
+```java
+// your method should look like this
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+      
+      // switch case to perform a menu action
+      switch (item.getItemId()) {
+            
+            case R.id.action_add_task:
+            
+                  // alert box builder 
+                  AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                  
+                  // sets the title of the alert box
+                  builder.setTitle("Add a task");
+                  
+                  // sets the message
+                  builder.setMessage("What do you want to do?");
+                  
+                  // creates an input field
+                  final EditText inputField = new EditText(this);
+                  
+                  // sets the input field int he alert box
+                  builder.setView(inputField);
+                  
+                  // creates a button to add a task
+                  builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+                  
+                        // handles the on click event for the add button
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                        
+                              String task = inputField.getText().toString();
+                              
+                              // prints out the entered task to console
+                              Log.d("MainActivity",task);
+                        }
+                  }
+                  
+                  // sets the Cancel button
+                  builder.setNegativeButton("Cancel",null);
+                  
+                  // creates the builder
+                  builder.create().show();
+                  
+                  return true;
+                  
+            default:
+                  return false;
+      }
+                  
+}
+
