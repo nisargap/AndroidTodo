@@ -140,6 +140,7 @@ public boolean onOptionsItemSelected(MenuItem item) {
 ```
 - After adding this code and pressing that green triangle button the app should look like:
 <img src="http://nisargap.github.io/AndroidTodo/images/StepFive.png" width="350">
+
 ## Step Six: Storing and Displaying the Data
 - Create some private variables in your MainActivity class (put these anywhere)
 ```java
