@@ -44,3 +44,23 @@ To Do List tutorial for Android Development
   getMenuInflater().inflate(R.menu.menu, menu);
   return true;
 ```
+- In your MainActivity.java look for the onOptionsItemsSelected(MenuItem item) method and change its code so it looks like:
+```java 
+// your method should look like this
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+      
+      // switch case to perform a menu action
+      switch (item.getItemId()) {
+            
+            case R.id.action_add_task:
+            
+                  // testing to see if add button works
+                  // should print Add a new task in the console
+                  Log.d("MainActivity", "Add a new task");
+                  return true;
+            default:
+                  return false;
+      }
+                  
+}
