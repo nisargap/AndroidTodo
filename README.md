@@ -64,3 +64,18 @@ public boolean onOptionsItemSelected(MenuItem item) {
       }
                   
 }
+```
+## Step Four: Testing the Add Button
+- Now that we wrote some code for an add button lets do some testing!
+- For those using Genymotion:
+      - Open up Genymotion from your desktop
+      - In Genymotion click on the + symbol to add a new virtual device
+      - Create a Nexus 6 Android version 5.1.0 that uses API 22
+      - Start the Nexus 6 emulator
+      - Go to AndroidStudio and click on the green triangle to play
+      - Select the open Nexus 6 emulator
+- For those not using Genymotion:
+      - Click on the play button select the default Android emulator
+- Your app should look like:
+<br>
+<img src="http://nisargap.github.io/AndroidTodo/images/StepFour.png" width="350">
