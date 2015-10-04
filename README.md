@@ -223,6 +223,7 @@ public void onDoneClick(View view) {
 }
 ```
 - And we're done! You're final app should look like this:
+<br>
 <img src="http://nisargap.github.io/AndroidTodo/images/StepSeven.png" width="350">
 
 ## Resources
