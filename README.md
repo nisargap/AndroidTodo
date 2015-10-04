@@ -223,7 +223,7 @@ public void onDoneClick(View view) {
       updateUI();
 }
 ```
-- And we're done! [Download](nisargap.github.io/AndroidTodo/release/AndroidTodo.apk) the final result!
+- And we're done! [Download](http://nisargap.github.io/AndroidTodo/release/AndroidTodo.apk) the final result!
 - You're final app should look like this:
 <br>
 <img src="http://nisargap.github.io/AndroidTodo/images/StepSeven.png" width="350">
