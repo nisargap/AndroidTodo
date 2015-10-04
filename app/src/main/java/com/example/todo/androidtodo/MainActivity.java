@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         updateUI();
     }
     //private SimpleCursorAdapter listAdapter;
-    private ArrayAdapter<String> listAdapterTwo;
+    private ArrayAdapter<String> taskAdapter;
     private ArrayList<String> items;
     private void updateUI() {
 //        helper = new TaskTableHelper(MainActivity.this);
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        listAdapterTwo = new ArrayAdapter<>(this, R.layout.task_view, R.id.taskTextView, items);
+        taskAdapter = new ArrayAdapter<>(this, R.layout.task_view, R.id.taskTextView, items);
 
 //        listAdapter = new SimpleCursorAdapter(
 //                this,
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 //                0
 //        );
         ListView listView = (ListView) findViewById(android.R.id.list);
-        listView.setAdapter(listAdapterTwo);
+        listView.setAdapter(taskAdapter);
 
 
     }
