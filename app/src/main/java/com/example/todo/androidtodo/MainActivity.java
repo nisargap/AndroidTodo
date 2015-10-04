@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -19,33 +21,42 @@ import android.widget.TextView;
 import com.example.todo.db.TaskTableCreator;
 import com.example.todo.db.TaskTableHelper;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
-    private TaskTableHelper helper;
+    //private TaskTableHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
           setContentView(R.layout.activity_main);
+        items = new ArrayList<>();
         updateUI();
     }
-    private SimpleCursorAdapter listAdapter;
+    //private SimpleCursorAdapter listAdapter;
+    private ArrayAdapter<String> listAdapterTwo;
+    private ArrayList<String> items;
     private void updateUI() {
-        helper = new TaskTableHelper(MainActivity.this);
-        SQLiteDatabase sqlDB = helper.getReadableDatabase();
-        Cursor cursor = sqlDB.query(TaskTableCreator.TABLE,
-                new String[]{TaskTableCreator.Columns._ID, TaskTableCreator.Columns.TASK},
-                null, null, null, null, null);
+//        helper = new TaskTableHelper(MainActivity.this);
+//        SQLiteDatabase sqlDB = helper.getReadableDatabase();
+//        Cursor cursor = sqlDB.query(TaskTableCreator.TABLE,
+//                new String[]{TaskTableCreator.Columns._ID, TaskTableCreator.Columns.TASK},
+//                null, null, null, null, null);
 
-        listAdapter = new SimpleCursorAdapter(
-                this,
-                R.layout.task_view,
-                cursor,
-                new String[]{TaskTableCreator.Columns.TASK},
-                new int[]{R.id.taskTextView},
-                0
-        );
+
+
+        listAdapterTwo = new ArrayAdapter<>(this, R.layout.task_view, R.id.taskTextView, items);
+
+//        listAdapter = new SimpleCursorAdapter(
+//                this,
+//                R.layout.task_view,
+//                cursor,
+//                new String[]{TaskTableCreator.Columns.TASK},
+//                new int[]{R.id.taskTextView},
+//                0
+//        );
         ListView listView = (ListView) findViewById(android.R.id.list);
-        listView.setAdapter(listAdapter);
+        listView.setAdapter(listAdapterTwo);
 
 
     }
@@ -66,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 //            case R.id.action_add_task:
 //                Log.d("MainActivity", "Add a new task");
 //                return true;
+
             case R.id.action_add_task:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Add a task");
@@ -75,20 +87,20 @@ public class MainActivity extends AppCompatActivity {
                 builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-//                        Log.d("MainActivity",inputField.getText().toString());
 
                         String task = inputField.getText().toString();
                         Log.d("MainActivity",task);
+                        items.add(task);
 
-                        helper = new TaskTableHelper(MainActivity.this);
-                        SQLiteDatabase db = helper.getWritableDatabase();
-                        ContentValues values = new ContentValues();
-
-                        values.clear();
-                        values.put(TaskTableCreator.Columns.TASK, task);
-
-                        db.insertWithOnConflict(TaskTableCreator.TABLE, null, values,
-                                SQLiteDatabase.CONFLICT_IGNORE);
+//                        helper = new TaskTableHelper(MainActivity.this);
+//                        SQLiteDatabase db = helper.getWritableDatabase();
+//                        ContentValues values = new ContentValues();
+//
+//                        values.clear();
+//                        values.put(TaskTableCreator.Columns.TASK, task);
+//
+//                        db.insertWithOnConflict(TaskTableCreator.TABLE, null, values,
+//                                SQLiteDatabase.CONFLICT_IGNORE);
                         updateUI();
                     }
 
@@ -104,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void onDoneClick(View view) {
+        /*
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
         String task = taskTextView.getText().toString();
@@ -118,9 +131,24 @@ public class MainActivity extends AppCompatActivity {
 
         String whereClause = TaskTableCreator.Columns.TASK + "=?";
         sqlDB.delete(TaskTableCreator.TABLE, whereClause, new String[]{task});
+        */
+        View v = (View) view.getParent();
+        TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
+        String task = taskTextView.getText().toString();
+
+        for (int i = 0; i < items.size(); i++){
+
+            if(items.get(i).equals(task)){
+
+                items.remove(i);
+            }
+        }
+
+        Log.d("MainActivity",Integer.toString(R.id.taskTextView));
+
         updateUI();
     }
     public void setListAdapter(SimpleCursorAdapter listAdapter) {
-        this.listAdapter = listAdapter;
+//        this.listAdapter = listAdapter;
     }
 }
