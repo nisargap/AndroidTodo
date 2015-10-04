@@ -23,3 +23,24 @@ To Do List tutorial for Android Development
 - It should look something like this:u
 <br>
 <img src="http://nisargap.github.io/AndroidTodo/images/StepTwo.png" width="350">
+
+## Step Three: Creating the Add Task Menu
+- Under the menu directory delete any file that is there and replace it with this code below
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:androidtodo="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_add_task"
+        androidtodo:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Add Task" />
+
+</menu>
+```
+- In your MainActvity.java look for the onCreateOptionsMenu method and make sure that the method contains this code:
+```java
+  getMenuInflater().inflate(R.menu.menu, menu);
+  return true;
+```
