@@ -23,8 +23,18 @@ import com.example.todo.db.TaskTableHelper;
 
 import java.util.ArrayList;
 
+/*********************
+ *  Tutorial By: Nisarga Patel
+ *  Mostly everything commented out is part of the database version
+ *  If you want to read a tutorial on the database version go to:
+ *  http://www.sitepoint.com/starting-android-development-creating-todo-app/
+ *  It's a great tutorial by a dude by the name of Aldo Ziflaj but I had to make
+ *  some minor changes to his tutorial to get it to work with the current Android Studio.
+ *
+ *********************/
 public class MainActivity extends AppCompatActivity {
 
+    // Database Version variable
     //private TaskTableHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,28 +43,36 @@ public class MainActivity extends AppCompatActivity {
         items = new ArrayList<>();
         updateUI();
     }
-    //private SimpleCursorAdapter listAdapter;
+    // Database Version variable
+    // private SimpleCursorAdapter listAdapter;
+
     private ArrayAdapter<String> taskAdapter;
     private ArrayList<String> items;
-    private void updateUI() {
-//        helper = new TaskTableHelper(MainActivity.this);
-//        SQLiteDatabase sqlDB = helper.getReadableDatabase();
-//        Cursor cursor = sqlDB.query(TaskTableCreator.TABLE,
-//                new String[]{TaskTableCreator.Columns._ID, TaskTableCreator.Columns.TASK},
-//                null, null, null, null, null);
 
+    private void updateUI() {
+
+        /* Database Version method part
+        helper = new TaskTableHelper(MainActivity.this);
+        SQLiteDatabase sqlDB = helper.getReadableDatabase();
+        Cursor cursor = sqlDB.query(TaskTableCreator.TABLE,
+                new String[]{TaskTableCreator.Columns._ID, TaskTableCreator.Columns.TASK},
+                null, null, null, null, null);
+        */
 
 
         taskAdapter = new ArrayAdapter<>(this, R.layout.task_view, R.id.taskTextView, items);
+        /* Database Version method part
+        listAdapter = new SimpleCursorAdapter(
+                this,
+                R.layout.task_view,
+                cursor,
+                new String[]{TaskTableCreator.Columns.TASK},
+                new int[]{R.id.taskTextView},
+                0
+        );
+        */
 
-//        listAdapter = new SimpleCursorAdapter(
-//                this,
-//                R.layout.task_view,
-//                cursor,
-//                new String[]{TaskTableCreator.Columns.TASK},
-//                new int[]{R.id.taskTextView},
-//                0
-//        );
+        // Needed for all versions
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(taskAdapter);
 
@@ -70,13 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
+
         switch (item.getItemId()) {
-//            case R.id.action_add_task:
-//                Log.d("MainActivity", "Add a new task");
-//                return true;
 
             case R.id.action_add_task:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -92,15 +106,17 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("MainActivity",task);
                         items.add(task);
 
-//                        helper = new TaskTableHelper(MainActivity.this);
-//                        SQLiteDatabase db = helper.getWritableDatabase();
-//                        ContentValues values = new ContentValues();
-//
-//                        values.clear();
-//                        values.put(TaskTableCreator.Columns.TASK, task);
-//
-//                        db.insertWithOnConflict(TaskTableCreator.TABLE, null, values,
-//                                SQLiteDatabase.CONFLICT_IGNORE);
+                        /* Database Version
+                        helper = new TaskTableHelper(MainActivity.this);
+                        SQLiteDatabase db = helper.getWritableDatabase();
+                        ContentValues values = new ContentValues();
+
+                        values.clear();
+                        values.put(TaskTableCreator.Columns.TASK, task);
+
+                        db.insertWithOnConflict(TaskTableCreator.TABLE, null, values,
+                                SQLiteDatabase.CONFLICT_IGNORE);
+                        */
                         updateUI();
                     }
 
@@ -116,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void onDoneClick(View view) {
-        /*
+        /* Database Version
         View v = (View) view.getParent();
         TextView taskTextView = (TextView) v.findViewById(R.id.taskTextView);
         String task = taskTextView.getText().toString();
@@ -144,11 +160,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        Log.d("MainActivity",Integer.toString(R.id.taskTextView));
+        // Debug Statement
+        // Log.d("MainActivity",Integer.toString(R.id.taskTextView));
 
         updateUI();
-    }
-    public void setListAdapter(SimpleCursorAdapter listAdapter) {
-//        this.listAdapter = listAdapter;
     }
 }
