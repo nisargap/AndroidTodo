@@ -1,5 +1,5 @@
 # AndroidTodo
-To Do List tutorial for Android Development
+To Do List tutorial for Android Development.
 ## Requirements
 - [Android Studio](https://developer.android.com/sdk/index.html) : You will need this IDE to develop for Android.
 
@@ -234,3 +234,6 @@ public void onDoneClick(View view) {
 ## Resources
 - [Android API Docs](http://developer.android.com/reference/packages.html)
 - [Android Udacity Course](https://www.udacity.com/course/developing-android-apps--ud853)
+
+## Referencesd
+- [Aldo Ziflaj's 2014 Android Todo Tutorial](http://www.sitepoint.com/starting-android-development-creating-todo-app/)
