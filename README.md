@@ -235,5 +235,5 @@ public void onDoneClick(View view) {
 - [Android API Docs](http://developer.android.com/reference/packages.html)
 - [Android Udacity Course](https://www.udacity.com/course/developing-android-apps--ud853)
 
-## Referencesd
+## References
 - [Aldo Ziflaj's 2014 Android Todo Tutorial](http://www.sitepoint.com/starting-android-development-creating-todo-app/)
